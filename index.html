@@ -2,7 +2,7 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
-  <title>Kazakhstan Tourism</title>
+  <title>Kazakhstan Tourism FIX</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,52 +12,50 @@
   <h1>🇰🇿 Kazakhstan Tourism</h1>
 
   <nav>
-    <a href="#home">Басты</a>
-    <a href="#about">Туралы</a>
-    <a href="#gallery">Галерея</a>
+    <a onclick="show('home')">Басты</a>
+    <a onclick="show('about')">Туралы</a>
+    <a onclick="show('gallery')">Галерея</a>
+    <button id="openModal">Кіру</button>
   </nav>
 </header>
 
 <!-- HOME -->
-<section id="home" class="section">
+<section id="home" class="page active">
   <h2>Қош келдің!</h2>
-  <p>Қазақстанның әсем жерлерін зертте</p>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section">
-  <h2>Туралы</h2>
-  <p>Қазақстан – табиғаты керемет ел.</p>
+<section id="about" class="page">
+  <h2>Қазақстан туралы</h2>
+  <p>Табиғаты әдемі ел 🇰🇿</p>
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" class="section">
+<section id="gallery" class="page">
   <h2>Галерея</h2>
 
   <div class="grid">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-      <p>Алматы таулары</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70">
-      <p>Бурабай</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-      <p>Шарын шатқалы</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b">
-      <p>Астана</p>
-    </div>
-
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Almaty_Medeu.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Burabay_National_Park.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Charyn_Canyon.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Baiterek_Tower_Astana.jpg">
   </div>
 </section>
+
+<!-- MODAL -->
+<div id="modal">
+  <div class="box">
+    <span id="close">✖</span>
+
+    <h3>Кіру</h3>
+    <input placeholder="Логин">
+    <input type="password" placeholder="Құпиясөз">
+    <button>Enter</button>
+  </div>
+</div>
+
+<!-- IMPORTANT FIX -->
+<script src="script.js"></script>
 
 </body>
 </html>
