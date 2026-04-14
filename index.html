@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Қазақстан Туризмі</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Қазақстан Туризмі</h1>
+
+  <div class="burger" id="burger">☰</div>
+
+  <nav id="nav">
+    <a href="#" onclick="showPage('home')">Басты</a>
+    <a href="#" onclick="showPage('about')">Туралы</a>
+    <a href="#" onclick="showPage('gallery')">Галерея</a>
+    <a href="#" onclick="showPage('contact')">Байланыс</a>
+  </nav>
+
+  <button onclick="toggleDark()">🌙</button>
+  <button onclick="openModal()">Кіру / Тіркелу</button>
+</header>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span id="closeModal">&times;</span>
+    <h2>Кіру</h2>
+    <input type="text" id="username" placeholder="Атыңыз">
+    <button onclick="login()">Кіру</button>
+  </div>
+</div>
+
+<!-- SPA SECTIONS -->
+<section id="home" class="page active">
+  <h2>Қош келдіңіз!</h2>
+</section>
+
+<section id="about" class="page">
+  <h2>Қазақстан туралы</h2>
+</section>
+
+<section id="gallery" class="page">
+
+  <h2>Галерея</h2>
+
+  <div class="slider">
+    <button onclick="prevSlide()">⬅</button>
+    <img id="slide" src="images/1.jpg">
+    <button onclick="nextSlide()">➡</button>
+  </div>
+
+</section>
+
+<section id="contact" class="page">
+  <h2>Байланыс</h2>
+  <input type="text" placeholder="Email">
+  <button>Жіберу</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
