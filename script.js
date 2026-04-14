@@ -1,55 +1,27 @@
-// SAVE NAME
-function saveName(){
-  const name=document.getElementById("nameInput").value;
-  localStorage.setItem("name",name);
-  showToast("Сақталды!");
-  document.getElementById("welcome").innerText="Қош келдің, "+name+" 🇰🇿";
-}
-
-// SPA NAVIGATION
+// SPA NAVIGATION (FIX)
 function show(id){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".page").forEach(p=>{
+    p.classList.remove("active");
+  });
+
   document.getElementById(id).classList.add("active");
 }
 
-// FAVORITES
-let favorites=[];
-function fav(place){
-  favorites.push(place);
-  showToast(place+" қосылды ❤️");
-  localStorage.setItem("fav",JSON.stringify(favorites));
-}
+// MODAL FIX
+const modal = document.getElementById("modal");
+const openBtn = document.getElementById("openModal");
+const closeBtn = document.getElementById("close");
 
-// TOAST
-function showToast(text){
-  const t=document.getElementById("toast");
-  t.innerText=text;
-  t.style.display="block";
-  setTimeout(()=>t.style.display="none",2000);
-}
+openBtn.onclick = function(){
+  modal.style.display = "block";
+};
 
-// CHATBOT (SIMPLE AI LOGIC)
-function sendMsg(){
-  const input=document.getElementById("msg");
-  const box=document.getElementById("chatBox");
+closeBtn.onclick = function(){
+  modal.style.display = "none";
+};
 
-  let msg=input.value;
-  box.innerHTML+="<p>👤: "+msg+"</p>";
-
-  let reply="Мен түсінбедім 🤖";
-
-  if(msg.includes("Алматы")) reply="Алматы — ең әдемі қала!";
-  if(msg.includes("Бурабай")) reply="Бурабай — табиғаты керемет көлдер аймағы!";
-  if(msg.includes("Қазақстан")) reply="Қазақстан — үлкен әрі әдемі ел 🇰🇿";
-
-  box.innerHTML+="<p>🤖: "+reply+"</p>";
-  input.value="";
-}
-
-// LOAD LOCAL STORAGE
-window.onload=()=>{
-  let name=localStorage.getItem("name");
-  if(name){
-    document.getElementById("welcome").innerText="Қош келдің, "+name+" 🇰🇿";
+window.onclick = function(e){
+  if(e.target == modal){
+    modal.style.display = "none";
   }
 };
