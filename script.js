@@ -1,68 +1,55 @@
-// SPA MENU
-const links = document.querySelectorAll(".nav-link");
-const pages = document.querySelectorAll(".page");
+// SAVE NAME
+function saveName(){
+  const name=document.getElementById("nameInput").value;
+  localStorage.setItem("name",name);
+  showToast("Сақталды!");
+  document.getElementById("welcome").innerText="Қош келдің, "+name+" 🇰🇿";
+}
 
-links.forEach(link => {
-  link.addEventListener("click", () => {
-    pages.forEach(p => p.classList.remove("active"));
-    links.forEach(l => l.classList.remove("active"));
+// SPA NAVIGATION
+function show(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
 
-    document.getElementById(link.dataset.page).classList.add("active");
-    link.classList.add("active");
-  });
-});
+// FAVORITES
+let favorites=[];
+function fav(place){
+  favorites.push(place);
+  showToast(place+" қосылды ❤️");
+  localStorage.setItem("fav",JSON.stringify(favorites));
+}
 
-// BURGER MENU
-const burger = document.getElementById("burger");
-const nav = document.getElementById("nav");
+// TOAST
+function showToast(text){
+  const t=document.getElementById("toast");
+  t.innerText=text;
+  t.style.display="block";
+  setTimeout(()=>t.style.display="none",2000);
+}
 
-burger.onclick = () => {
-  nav.classList.toggle("show");
+// CHATBOT (SIMPLE AI LOGIC)
+function sendMsg(){
+  const input=document.getElementById("msg");
+  const box=document.getElementById("chatBox");
+
+  let msg=input.value;
+  box.innerHTML+="<p>👤: "+msg+"</p>";
+
+  let reply="Мен түсінбедім 🤖";
+
+  if(msg.includes("Алматы")) reply="Алматы — ең әдемі қала!";
+  if(msg.includes("Бурабай")) reply="Бурабай — табиғаты керемет көлдер аймағы!";
+  if(msg.includes("Қазақстан")) reply="Қазақстан — үлкен әрі әдемі ел 🇰🇿";
+
+  box.innerHTML+="<p>🤖: "+reply+"</p>";
+  input.value="";
+}
+
+// LOAD LOCAL STORAGE
+window.onload=()=>{
+  let name=localStorage.getItem("name");
+  if(name){
+    document.getElementById("welcome").innerText="Қош келдің, "+name+" 🇰🇿";
+  }
 };
-
-// MODAL
-const modal = document.getElementById("modal");
-document.getElementById("openModal").onclick = () => modal.style.display = "block";
-document.getElementById("closeModal").onclick = () => modal.style.display = "none";
-
-window.onclick = (e) => {
-  if (e.target == modal) modal.style.display = "none";
-};
-
-// SLIDER IMAGES
-const images = [
-  "https://upload.wikimedia.org/wikipedia/commons/6/6e/Almaty_Medeu.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/5/5d/Burabay_National_Park.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/9/9e/Charyn_Canyon.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/2/2f/Baiterek_Tower_Astana.jpg"
-];
-
-let i = 0;
-const img = document.getElementById("slideImg");
-
-document.getElementById("next").onclick = () => {
-  i = (i + 1) % images.length;
-  img.src = images[i];
-};
-
-document.getElementById("prev").onclick = () => {
-  i = (i - 1 + images.length) % images.length;
-  img.src = images[i];
-};
-
-// AUTO SLIDE
-setInterval(() => {
-  i = (i + 1) % images.length;
-  img.src = images[i];
-}, 4000);
-
-// DARK MODE
-document.getElementById("darkToggle").onclick = () => {
-  document.body.classList.toggle("dark");
-};
-
-// FORM
-document.getElementById("contactForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("Жіберілді!");
-});
