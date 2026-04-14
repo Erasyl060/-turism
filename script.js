@@ -1,136 +1,66 @@
-body{
-  margin:0;
-  font-family:Arial;
-  transition:0.4s;
-  background:#f4f7ff;
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
-/* GLASS HEADER */
-.glass{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px;
-  background:rgba(0,0,0,0.7);
-  color:white;
-  position:sticky;
-  top:0;
-  backdrop-filter:blur(10px);
-}
-
-nav a{
-  margin:0 10px;
-  cursor:pointer;
-  color:white;
-}
-
-.right{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.burger{
-  display:none;
-  cursor:pointer;
-}
-
-/* PAGES */
-.page{
-  display:none;
-  padding:30px;
-}
-
-.active{
-  display:block;
-  animation:fade 0.5s;
-}
-
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1;}
-}
-
-/* CARDS */
-.cards{
-  display:flex;
-  gap:15px;
-}
-
-.card{
-  flex:1;
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:scale(1.05);
-}
-
-/* SLIDER */
-.slider{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.slider img{
-  width:400px;
-  border-radius:12px;
+/* MENU */
+function toggleMenu(){
+  let nav = document.getElementById("nav");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
 }
 
 /* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
+let modal = document.getElementById("modal");
+
+function openModal(){ modal.style.display="block"; }
+function closeModal(){ modal.style.display="none"; }
+
+window.onclick = e => {
+  if(e.target == modal) modal.style.display="none";
 }
 
-.modal-box{
-  background:white;
-  width:300px;
-  margin:100px auto;
-  padding:20px;
-  border-radius:10px;
+/* LOGIN */
+function login(){
+  let name = document.getElementById("name").value;
+  localStorage.setItem("user", name);
+  alert("Қош келдің, " + name);
+  closeModal();
 }
+
+/* SLIDER */
+let imgs = ["images/1.jpg","images/2.jpg","images/3.jpg"];
+let i = 0;
+
+function showImg(){
+  document.getElementById("img").src = imgs[i];
+}
+
+function next(){
+  i = (i+1)%imgs.length;
+  showImg();
+}
+
+function prev(){
+  i = (i-1+imgs.length)%imgs.length;
+  showImg();
+}
+
+/* AUTO SLIDE */
+setInterval(next, 2500);
 
 /* DARK MODE */
-.dark{
-  background:#111;
-  color:white;
+function toggleDark(){
+  document.body.classList.toggle("dark");
 }
 
-.dark .card{
-  background:#222;
-  color:white;
-}
+/* CONTACT VALIDATION */
+function send(){
+  let email = document.getElementById("email").value;
+  let msg = document.getElementById("msg");
 
-/* MOBILE */
-@media(max-width:768px){
-  nav{
-    display:none;
-    flex-direction:column;
-    position:absolute;
-    top:60px;
-    right:0;
-    background:#000;
-    padding:10px;
-  }
-
-  .burger{
-    display:block;
-  }
-
-  .cards{
-    flex-direction:column;
-  }
-
-  .slider img{
-    width:250px;
+  if(email.includes("@")){
+    msg.innerHTML = "✔ Жіберілді!";
+  }else{
+    msg.innerHTML = "❌ Email дұрыс емес";
   }
 }
