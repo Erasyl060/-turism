@@ -1,66 +1,68 @@
-function show(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
+// SPA MENU
+const links = document.querySelectorAll(".nav-link");
+const pages = document.querySelectorAll(".page");
 
-/* MENU */
-function toggleMenu(){
-  let nav = document.getElementById("nav");
-  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
-}
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    pages.forEach(p => p.classList.remove("active"));
+    links.forEach(l => l.classList.remove("active"));
 
-/* MODAL */
-let modal = document.getElementById("modal");
+    document.getElementById(link.dataset.page).classList.add("active");
+    link.classList.add("active");
+  });
+});
 
-function openModal(){ modal.style.display="block"; }
-function closeModal(){ modal.style.display="none"; }
+// BURGER MENU
+const burger = document.getElementById("burger");
+const nav = document.getElementById("nav");
 
-window.onclick = e => {
-  if(e.target == modal) modal.style.display="none";
-}
+burger.onclick = () => {
+  nav.classList.toggle("show");
+};
 
-/* LOGIN */
-function login(){
-  let name = document.getElementById("name").value;
-  localStorage.setItem("user", name);
-  alert("Қош келдің, " + name);
-  closeModal();
-}
+// MODAL
+const modal = document.getElementById("modal");
+document.getElementById("openModal").onclick = () => modal.style.display = "block";
+document.getElementById("closeModal").onclick = () => modal.style.display = "none";
 
-/* SLIDER */
-let imgs = ["images/1.jpg","images/2.jpg","images/3.jpg"];
+window.onclick = (e) => {
+  if (e.target == modal) modal.style.display = "none";
+};
+
+// SLIDER IMAGES
+const images = [
+  "https://upload.wikimedia.org/wikipedia/commons/6/6e/Almaty_Medeu.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/5d/Burabay_National_Park.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/9/9e/Charyn_Canyon.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/2/2f/Baiterek_Tower_Astana.jpg"
+];
+
 let i = 0;
+const img = document.getElementById("slideImg");
 
-function showImg(){
-  document.getElementById("img").src = imgs[i];
-}
+document.getElementById("next").onclick = () => {
+  i = (i + 1) % images.length;
+  img.src = images[i];
+};
 
-function next(){
-  i = (i+1)%imgs.length;
-  showImg();
-}
+document.getElementById("prev").onclick = () => {
+  i = (i - 1 + images.length) % images.length;
+  img.src = images[i];
+};
 
-function prev(){
-  i = (i-1+imgs.length)%imgs.length;
-  showImg();
-}
+// AUTO SLIDE
+setInterval(() => {
+  i = (i + 1) % images.length;
+  img.src = images[i];
+}, 4000);
 
-/* AUTO SLIDE */
-setInterval(next, 2500);
-
-/* DARK MODE */
-function toggleDark(){
+// DARK MODE
+document.getElementById("darkToggle").onclick = () => {
   document.body.classList.toggle("dark");
-}
+};
 
-/* CONTACT VALIDATION */
-function send(){
-  let email = document.getElementById("email").value;
-  let msg = document.getElementById("msg");
-
-  if(email.includes("@")){
-    msg.innerHTML = "✔ Жіберілді!";
-  }else{
-    msg.innerHTML = "❌ Email дұрыс емес";
-  }
-}
+// FORM
+document.getElementById("contactForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("Жіберілді!");
+});
