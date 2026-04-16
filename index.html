@@ -1,92 +1,121 @@
-<!DOCTYPE html>
-<html lang="kk">
-<head>
-  <meta charset="UTF-8">
-  <title>Қазақстан Туризмі</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!-- INFO -->
+<section id="info">
+  <h1>Қазақстан туралы толық ақпарат</h1>
 
-<header>
-  <h2>🇰🇿 Tourism KZ</h2>
-  <div class="burger" onclick="toggleMenu()">☰</div>
-  <nav id="menu">
-    <a onclick="showSection('home')">Басты бет</a>
-    <a onclick="showSection('about')">Туралы</a>
-    <a onclick="showSection('gallery')">Галерея</a>
-    <a onclick="showSection('contact')">Байланыс</a>
-  </nav>
-</header>
+  <p>
+    Қазақстан — Орталық Азиядағы ең ірі мемлекеттердің бірі және әлемде
+    аумағы бойынша 9-орында орналасқан. Елдің табиғаты өте алуан түрлі:
+    солтүстігінде орман, оңтүстігінде шөл, ал шығысында биік таулар бар.
+  </p>
 
-<section id="home" class="active hero">
-  <h1>Қазақстанға қош келдіңіз 🇰🇿</h1>
-  <p>Табиғаты әсем, тарихы терең ел</p>
-  <button onclick="openModal()">Саяхатты бастау</button>
+  <p>
+    Қазақстан туризм үшін өте қолайлы мемлекет. Мұнда табиғи көрікті
+    жерлермен қатар, заманауи қалалар мен тарихи ескерткіштер бар.
+  </p>
+
+  <h3>Негізгі деректер:</h3>
+  <ul>
+    <li>Астанасы: Астана</li>
+    <li>Халқы: 20 миллионнан астам</li>
+    <li>Тілі: қазақ тілі</li>
+    <li>Валютасы: теңге</li>
+  </ul>
+
+  <h3>Туризм түрлері:</h3>
+  <ul>
+    <li>🏔 Тау туризмі (Алматы, Алтай)</li>
+    <li>🏞 Экотуризм (Көлсай, Бурабай)</li>
+    <li>🏜 Шөл туризмі (Маңғыстау)</li>
+    <li>🏛 Тарихи туризм (Түркістан)</li>
+  </ul>
 </section>
 
-<section id="about">
-  <h1>Қазақстан туралы</h1>
+<!-- PLACES -->
+<section id="places">
+  <h1>Танымал туристік орындар</h1>
+
   <div class="cards">
 
     <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Burabay_lake.jpg">
       <h3>Бурабай</h3>
-      <p>Көкшетауда орналасқан табиғи демалыс орны. Орман, көлдер және таза ауа.</p>
+      <p>
+        Көкшетау өңірінде орналасқан ең танымал курорттардың бірі.
+        Мұнда көлдер, ормандар және таза ауа бар.
+      </p>
     </div>
 
     <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Charyn_Canyon.jpg">
       <h3>Шарын каньоны</h3>
-      <p>Қазақстанның Гранд-Каньоны. Ерекше қызыл тастарымен танымал.</p>
+      <p>
+        Ұзындығы 150 км болатын табиғи ескерткіш. Ерекше қызыл
+        жартастарымен әлемге танымал.
+      </p>
     </div>
 
     <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Kolsai_Lake.jpg">
       <h3>Көлсай көлдері</h3>
-      <p>Таулы аймақта орналасқан керемет көлдер жүйесі.</p>
+      <p>
+        Үш көлден тұратын табиғи жүйе. Таулы аймақта орналасқан
+        және туристер арасында өте танымал.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Almaty_mountains.jpg">
+      <h3>Алматы таулары</h3>
+      <p>
+        Іле Алатауы — шаңғы, серуен және табиғат демалысы үшін
+        ең жақсы орындардың бірі.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Astana_skyline.jpg">
+      <h3>Астана</h3>
+      <p>
+        Қазақстанның астанасы. Заманауи архитектурасымен
+        және туристік нысандарымен танымал.
+      </p>
     </div>
 
   </div>
 </section>
 
-<section id="gallery">
-  <h1>Галерея</h1>
+<!-- PLAN -->
+<section id="plan">
+  <h1>7 күндік тур жоспары</h1>
 
-  <div class="grid">
-    <img src="images/burabay.jpg">
-    <img src="images/charyn.jpg">
-    <img src="images/kolsai.jpg">
-    <img src="images/astana.jpg">
-    <img src="images/almaty.jpg">
-  </div>
+  <p>
+    Қазақстанды толық көру үшін төмендегі маршрут ұсынылады:
+  </p>
 
-  <div class="slider">
-    <button onclick="prevSlide()">⬅</button>
-    <img id="slide" src="images/burabay.jpg">
-    <button onclick="nextSlide()">➡</button>
-  </div>
-
+  <ol>
+    <li>1-күн: Астана — қала экскурсиясы</li>
+    <li>2-күн: Алматыға ұшу</li>
+    <li>3-күн: Медеу және Шымбұлақ</li>
+    <li>4-күн: Көлсай көлдері</li>
+    <li>5-күн: Шарын каньоны</li>
+    <li>6-күн: Бурабай</li>
+    <li>7-күн: Демалыс және қайту</li>
+  </ol>
 </section>
 
-<section id="contact">
-  <h1>Байланыс</h1>
-  <form onsubmit="saveData(event)">
-    <input type="text" placeholder="Атыңыз" id="name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Хабарлама"></textarea>
-    <button type="submit">Жіберу</button>
-  </form>
+<!-- TIPS -->
+<section id="tips">
+  <h1>Туристерге кеңестер</h1>
+
+  <p>
+    Саяхат кезінде төмендегі кеңестерді сақтау ұсынылады:
+  </p>
+
+  <ul>
+    <li>✔ Тауға барғанда жылы киім алыңыз</li>
+    <li>✔ Әрқашан су алып жүріңіз</li>
+    <li>✔ Фотоаппарат немесе телефон дайындаңыз 📸</li>
+    <li>✔ Табиғатты қорғаңыз және қоқыс қалдырмаңыз</li>
+    <li>✔ Маршрутты алдын ала жоспарлаңыз</li>
+  </ul>
 </section>
-
-<!-- МОДАЛ -->
-<div id="modal" class="modal" onclick="outsideClick(event)">
-  <div class="modal-content">
-    <span onclick="closeModal()">✖</span>
-    <h2>Саяхатқа тіркелу</h2>
-    <input type="text" placeholder="Атыңыз">
-    <button>Бастау</button>
-  </div>
-</div>
-
-<button class="dark-btn" onclick="toggleDark()">🌙</button>
-
-<script src="script.js"></script>
-</body>
-</html>
