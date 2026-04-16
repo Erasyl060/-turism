@@ -7,61 +7,85 @@
 </head>
 <body>
 
-<!-- НАВИГАЦИЯ -->
 <header>
   <h2>🇰🇿 Tourism KZ</h2>
   <div class="burger" onclick="toggleMenu()">☰</div>
   <nav id="menu">
-    <a href="#" onclick="showSection('home')">Басты бет</a>
-    <a href="#" onclick="showSection('about')">Туралы</a>
-    <a href="#" onclick="showSection('gallery')">Галерея</a>
-    <a href="#" onclick="showSection('contact')">Байланыс</a>
+    <a onclick="showSection('home')">Басты бет</a>
+    <a onclick="showSection('about')">Туралы</a>
+    <a onclick="showSection('gallery')">Галерея</a>
+    <a onclick="showSection('contact')">Байланыс</a>
   </nav>
 </header>
 
-<!-- МОДАЛ -->
-<button onclick="openModal()">Кіру / Тіркелу</button>
-
-<div id="modal" class="modal" onclick="outsideClick(event)">
-  <div class="modal-content">
-    <span onclick="closeModal()">✖</span>
-    <h2>Тіркелу</h2>
-    <input type="text" placeholder="Атыңыз">
-    <input type="email" placeholder="Email">
-    <button>Жіберу</button>
-  </div>
-</div>
-
-<!-- БӨЛІМДЕР -->
-<section id="home" class="active">
-  <h1>Қазақстанға қош келдіңіз!</h1>
-  <p>Туризмді бірге зерттейік</p>
+<section id="home" class="active hero">
+  <h1>Қазақстанға қош келдіңіз 🇰🇿</h1>
+  <p>Табиғаты әсем, тарихы терең ел</p>
+  <button onclick="openModal()">Саяхатты бастау</button>
 </section>
 
 <section id="about">
   <h1>Қазақстан туралы</h1>
-  <p>Қазақстан — табиғаты әдемі ел.</p>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Бурабай</h3>
+      <p>Көкшетауда орналасқан табиғи демалыс орны. Орман, көлдер және таза ауа.</p>
+    </div>
+
+    <div class="card">
+      <h3>Шарын каньоны</h3>
+      <p>Қазақстанның Гранд-Каньоны. Ерекше қызыл тастарымен танымал.</p>
+    </div>
+
+    <div class="card">
+      <h3>Көлсай көлдері</h3>
+      <p>Таулы аймақта орналасқан керемет көлдер жүйесі.</p>
+    </div>
+
+  </div>
 </section>
 
 <section id="gallery">
   <h1>Галерея</h1>
+
+  <div class="grid">
+    <img src="images/burabay.jpg">
+    <img src="images/charyn.jpg">
+    <img src="images/kolsai.jpg">
+    <img src="images/astana.jpg">
+    <img src="images/almaty.jpg">
+  </div>
+
   <div class="slider">
     <button onclick="prevSlide()">⬅</button>
-    <img id="slide" src="images/1.jpg">
+    <img id="slide" src="images/burabay.jpg">
     <button onclick="nextSlide()">➡</button>
   </div>
+
 </section>
 
 <section id="contact">
   <h1>Байланыс</h1>
   <form onsubmit="saveData(event)">
     <input type="text" placeholder="Атыңыз" id="name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Хабарлама"></textarea>
     <button type="submit">Жіберу</button>
   </form>
 </section>
 
-<!-- DARK MODE -->
-<button onclick="toggleDark()">🌙</button>
+<!-- МОДАЛ -->
+<div id="modal" class="modal" onclick="outsideClick(event)">
+  <div class="modal-content">
+    <span onclick="closeModal()">✖</span>
+    <h2>Саяхатқа тіркелу</h2>
+    <input type="text" placeholder="Атыңыз">
+    <button>Бастау</button>
+  </div>
+</div>
+
+<button class="dark-btn" onclick="toggleDark()">🌙</button>
 
 <script src="script.js"></script>
 </body>
