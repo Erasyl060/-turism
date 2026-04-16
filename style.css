@@ -1,14 +1,15 @@
 body {
-  font-family: Arial;
   margin: 0;
+  font-family: Arial;
+  transition: 0.3s;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  background: teal;
+  background: linear-gradient(to right, #008080, #00b894);
   color: white;
-  padding: 10px;
+  padding: 15px;
 }
 
 nav {
@@ -18,8 +19,8 @@ nav {
 
 nav a {
   color: white;
-  text-decoration: none;
   margin: 5px;
+  cursor: pointer;
 }
 
 .burger {
@@ -28,20 +29,85 @@ nav a {
 
 section {
   display: none;
-  padding: 20px;
+  padding: 30px;
 }
 
 .active {
   display: block;
 }
 
-/* МОДАЛ */
+/* HERO */
+.hero {
+  text-align: center;
+  background: url("images/almaty.jpg") center/cover;
+  color: white;
+  padding: 100px 20px;
+}
+
+.hero button {
+  padding: 10px 20px;
+  background: orange;
+  border: none;
+  cursor: pointer;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  flex: 1;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 10px;
+}
+
+.grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.grid img:hover {
+  transform: scale(1.05);
+}
+
+/* SLIDER */
+.slider {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.slider img {
+  width: 300px;
+}
+
+/* FORM */
+input, textarea {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
 }
 
 .modal-content {
@@ -51,8 +117,14 @@ section {
   width: 300px;
 }
 
-/* DARK MODE */
+/* DARK */
 .dark {
-  background: black;
+  background: #121212;
   color: white;
+}
+
+.dark-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
