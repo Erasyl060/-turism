@@ -21,11 +21,10 @@ function outsideClick(e) {
 }
 
 let images = [
-  "images/burabay.jpg",
-  "images/charyn.jpg",
-  "images/kolsai.jpg",
-  "images/astana.jpg",
-  "images/almaty.jpg"
+  "https://upload.wikimedia.org/wikipedia/commons/6/6e/Burabay_lake.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/1/1c/Charyn_Canyon.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kolsai_Lake.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/a/a3/Astana_skyline.jpg"
 ];
 
 let index = 0;
