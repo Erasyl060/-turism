@@ -1,79 +1,68 @@
 <!DOCTYPE html>
 <html lang="kk">
-<button id="openModal">Кіру / Тіркелу</button>
-
-<div id="modal">
-  <div class="box">
-
-    <span id="close">✖</span>
-
-    <h2 id="title">Кіру</h2>
-
-    <input placeholder="Логин">
-    <input type="password" placeholder="Құпиясөз">
-
-    <button>Жіберу</button>
-
-    <p id="switch">Тіркелу жасау</p>
-
-  </div>
-</div>
-  <head>
+<head>
   <meta charset="UTF-8">
-  <title>Kazakhstan Tourism FIX</title>
+  <title>Қазақстан Туризмі</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<!-- НАВИГАЦИЯ -->
 <header>
-  <h1>🇰🇿 Kazakhstan Tourism</h1>
-
-  <nav>
-    <a onclick="show('home')">Басты</a>
-    <a onclick="show('about')">Туралы</a>
-    <a onclick="show('gallery')">Галерея</a>
-    <button id="openModal">Кіру</button>
+  <h2>🇰🇿 Tourism KZ</h2>
+  <div class="burger" onclick="toggleMenu()">☰</div>
+  <nav id="menu">
+    <a href="#" onclick="showSection('home')">Басты бет</a>
+    <a href="#" onclick="showSection('about')">Туралы</a>
+    <a href="#" onclick="showSection('gallery')">Галерея</a>
+    <a href="#" onclick="showSection('contact')">Байланыс</a>
   </nav>
 </header>
 
-<!-- HOME -->
-<section id="home" class="page active">
-  <h2>Қош келдің!</h2>
-</section>
+<!-- МОДАЛ -->
+<button onclick="openModal()">Кіру / Тіркелу</button>
 
-<!-- ABOUT -->
-<section id="about" class="page">
-  <h2>Қазақстан туралы</h2>
-  <p>Табиғаты әдемі ел 🇰🇿</p>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery" class="page">
-  <h2>Галерея</h2>
-
-  <div class="grid">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Almaty_Medeu.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Burabay_National_Park.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Charyn_Canyon.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Baiterek_Tower_Astana.jpg">
-  </div>
-</section>
-
-<!-- MODAL -->
-<div id="modal">
-  <div class="box">
-    <span id="close">✖</span>
-
-    <h3>Кіру</h3>
-    <input placeholder="Логин">
-    <input type="password" placeholder="Құпиясөз">
-    <button>Enter</button>
+<div id="modal" class="modal" onclick="outsideClick(event)">
+  <div class="modal-content">
+    <span onclick="closeModal()">✖</span>
+    <h2>Тіркелу</h2>
+    <input type="text" placeholder="Атыңыз">
+    <input type="email" placeholder="Email">
+    <button>Жіберу</button>
   </div>
 </div>
 
-<!-- IMPORTANT FIX -->
-<script src="script.js"></script>
+<!-- БӨЛІМДЕР -->
+<section id="home" class="active">
+  <h1>Қазақстанға қош келдіңіз!</h1>
+  <p>Туризмді бірге зерттейік</p>
+</section>
 
+<section id="about">
+  <h1>Қазақстан туралы</h1>
+  <p>Қазақстан — табиғаты әдемі ел.</p>
+</section>
+
+<section id="gallery">
+  <h1>Галерея</h1>
+  <div class="slider">
+    <button onclick="prevSlide()">⬅</button>
+    <img id="slide" src="images/1.jpg">
+    <button onclick="nextSlide()">➡</button>
+  </div>
+</section>
+
+<section id="contact">
+  <h1>Байланыс</h1>
+  <form onsubmit="saveData(event)">
+    <input type="text" placeholder="Атыңыз" id="name" required>
+    <button type="submit">Жіберу</button>
+  </form>
+</section>
+
+<!-- DARK MODE -->
+<button onclick="toggleDark()">🌙</button>
+
+<script src="script.js"></script>
 </body>
 </html>
