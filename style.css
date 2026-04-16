@@ -1,129 +1,135 @@
 body {
-  margin: 0;
-  font-family: Arial;
-  transition: 0.3s;
+  margin:0;
+  font-family: 'Segoe UI';
+  background: #f5f7fa;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  background: linear-gradient(to right, #008080, #00b894);
-  color: white;
-  padding: 15px;
+  display:flex;
+  justify-content:space-between;
+  background:#0f172a;
+  color:white;
+  padding:15px;
 }
 
 nav {
-  display: none;
-  flex-direction: column;
+  display:none;
+  flex-direction:column;
 }
 
 nav a {
-  color: white;
-  margin: 5px;
-  cursor: pointer;
+  color:white;
+  margin:5px;
+  cursor:pointer;
 }
 
-.burger {
-  cursor: pointer;
-}
+.burger { cursor:pointer; }
 
 section {
-  display: none;
-  padding: 30px;
+  display:none;
+  padding:40px;
 }
 
-.active {
-  display: block;
-}
+.active { display:block; }
 
 /* HERO */
 .hero {
-  text-align: center;
-  background: url("images/almaty.jpg") center/cover;
-  color: white;
-  padding: 100px 20px;
+  height:90vh;
+  background:url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Almaty_mountains.jpg") center/cover;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
 .hero button {
-  padding: 10px 20px;
-  background: orange;
-  border: none;
-  cursor: pointer;
+  padding:12px 25px;
+  background:#22c55e;
+  border:none;
+  color:white;
+  cursor:pointer;
+  border-radius:10px;
 }
 
 /* CARDS */
 .cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
 .card {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  flex: 1;
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  width:300px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card h3, .card p {
+  padding:10px;
 }
 
 /* GRID */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 10px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
 }
 
 .grid img {
-  width: 100%;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.grid img:hover {
-  transform: scale(1.05);
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
 }
 
 /* SLIDER */
 .slider {
-  text-align: center;
-  margin-top: 20px;
+  text-align:center;
+  margin-top:20px;
 }
 
 .slider img {
-  width: 300px;
-}
-
-/* FORM */
-input, textarea {
-  display: block;
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
+  width:400px;
+  border-radius:10px;
 }
 
 /* MODAL */
 .modal {
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
 }
 
 .modal-content {
-  background: white;
-  margin: 10% auto;
-  padding: 20px;
-  width: 300px;
+  background:white;
+  padding:20px;
+  margin:10% auto;
+  width:300px;
 }
 
 /* DARK */
 .dark {
-  background: #121212;
-  color: white;
+  background:#0f172a;
+  color:white;
 }
 
 .dark-btn {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+}
   position: fixed;
   bottom: 20px;
   right: 20px;
