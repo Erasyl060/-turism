@@ -1,35 +1,54 @@
-const modal = document.getElementById("modal");
-const openBtn = document.getElementById("openModal");
-const closeBtn = document.getElementById("close");
+// МОДАЛ
+function openModal() {
+  document.getElementById("modal").style.display = "block";
+}
 
-const title = document.getElementById("title");
-const switchBtn = document.getElementById("switch");
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
 
-let isLogin = true;
+function outsideClick(e) {
+  if (e.target.id === "modal") closeModal();
+}
 
-// OPEN
-openBtn.onclick = () => {
-  modal.style.display = "block";
-};
+// БУРГЕР МЕНЮ
+function toggleMenu() {
+  let menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
 
-// CLOSE
-closeBtn.onclick = () => {
-  modal.style.display = "none";
-};
+// SPA
+function showSection(id) {
+  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
 
-window.onclick = (e) => {
-  if (e.target == modal) modal.style.display = "none";
-};
+// СЛАЙДЕР
+let images = ["images/1.jpg", "images/2.jpg", "images/3.jpg"];
+let index = 0;
 
-// SWITCH LOGIN / REGISTER
-switchBtn.onclick = () => {
-  isLogin = !isLogin;
+function nextSlide() {
+  index = (index + 1) % images.length;
+  document.getElementById("slide").src = images[index];
+}
 
-  if (isLogin) {
-    title.innerText = "Кіру";
-    switchBtn.innerText = "Тіркелу жасау";
-  } else {
-    title.innerText = "Тіркелу";
-    switchBtn.innerText = "Кіру";
-  }
-};
+function prevSlide() {
+  index = (index - 1 + images.length) % images.length;
+  document.getElementById("slide").src = images[index];
+}
+
+// АВТО
+setInterval(nextSlide, 3000);
+
+// DARK MODE
+function toggleDark() {
+  document.body.classList.toggle("dark");
+}
+
+// LOCAL STORAGE
+function saveData(e) {
+  e.preventDefault();
+  let name = document.getElementById("name").value;
+  localStorage.setItem("name", name);
+  alert("Сақталды!");
+}
